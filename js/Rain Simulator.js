@@ -258,7 +258,7 @@ function rain() {
         queue.push([r, c - 1]);
       }
       if (currRow[c + 1].dataset.type == "empty") {
-        currRow[c - 1].dataset.type = "water";
+        currRow[c + 1].dataset.type = "water";
         queue.push([r, c + 1]);
       }
     }
