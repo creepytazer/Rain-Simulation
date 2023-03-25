@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Prompt:wght@600&display=swap" rel="stylesheet">
+    <title>Make it Rain!</title>
+    <link rel="icon" href="recourses/rain cloud.png">
+</head>
+<body>
+    <section id="header">
+        <div id="header">
+            <div id="header-main">
+                <span id="header-main-text"> Rainfall Simulator</span>
+            </div>
+            <div id="header-main-sub"></div>
+        </div>
+    </section>
+    <section id="tools">
+
+        <div id="settings" class="tool-menu">
+            <div id="selector-title"><span class="selector-title-text">Settings</span></div>
+            <div class="selector">
+                <div id="width-selector" class="settings-box selector">
+                    <span class="selector-text">Width</span> <input id="width-input" class="int-input" type="number" value="25" step="1">
+                </div>
+                <div id="height-selector" class="settings-box selector">
+                    <span class="selector-text">Height</span> <input id="height-input" class="int-input" type="number" value="10">
+                </div>
+                <div id="speed-selector" class="settings-box selector">
+                    <span class="selector-text">Speed</span> <input id="speed-input" class="int-input" type="number" value="5">
+                </div>
+            </div>
+        </div>
+        
+        <div id="play-btns"><button type="button" class="btn btn-red">Reset Board</button><button type="button" class="btn run-btn">Simulate</button></div>
+        
+
+        <div id="placing-selector" class="tool-menu">
+            <div id="selector-title"><span class="selector-title-text">Currently Placing:</span></div>
+            <div class="selector">
+                <div data-selected="False" data-type="wall" class="placing-box selector">
+                    <span class="selector-text">Wall</span> <img class="selector-img" src="recourses/wall.png">
+                </div>
+                <div data-selected="False" data-type="rain" class="placing-box selector">
+                    <span class="selector-text">Rain</span> <img class="selector-img" src="recourses/rain cloud.png">
+                </div>
+                <div data-selected="False" data-type="eraser" class="placing-box selector">
+                    <span class="selector-text">Eraser</span> <img class="selector-img" src="recourses/eraser.png">
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <section id="game">
+        <div id="gameboard">
+            <div class="game-row"><img class="game-tile"src="recourses/empty.png"><img class="game-tile"src="recourses/empty.png"><img class="game-tile"src="recourses/empty.png"></div>
+            <div class="game-row"><img class="game-tile"src="recourses/empty.png"><img class="game-tile"src="recourses/empty.png"><img class="game-tile"src="recourses/empty.png"></div>
+        </div>
+    </section>
+    <script src="js/Rain Simulator.js"></script>
+</body>
+</html>
