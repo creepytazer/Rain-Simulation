@@ -213,11 +213,15 @@ function rain() {
     tile.dataset.type = "water";
 
     if (
-      c - 1 < 0 ||
-      c + 1 == currRow.length ||
-      currRow[c - 1].dataset.waterstate == "leak" ||
-      currRow[c + 1].dataset.waterstate == "leak" ||
-      (r + 1 < grid.length &&
+      (c - 1 < 0 ||
+        c + 1 == currRow.length ||
+        currRow[c - 1].dataset.waterstate == "leak" ||
+        currRow[c + 1].dataset.waterstate == "leak" ||
+        (r + 1 < grid.length &&
+          grid[r + 1].children[c].dataset.waterstate == "leak")) &&
+      (r == grid.length - 1 ||
+        grid[r + 1].children[c].dataset.type == "wall" ||
+        grid[r + 1].children[c].dataset.waterstate == "full" ||
         grid[r + 1].children[c].dataset.waterstate == "leak")
     ) {
       tile.dataset.waterstate = "leak";
@@ -226,6 +230,8 @@ function rain() {
       continue;
     }
     if (
+      c != 0 &&
+      c != currRow.length &&
       (currRow[c - 1].dataset.type == "wall" ||
         currRow[c - 1].dataset.waterstate == "10" ||
         currRow[c - 1].dataset.waterstate == "full") &&
@@ -240,7 +246,6 @@ function rain() {
       continue;
     }
 
-    queue.push([r, c]);
     if (
       r + 1 < grid.length &&
       grid[r + 1].children[c].dataset.type != "wall" &&
@@ -264,6 +269,8 @@ function rain() {
     }
 
     if (
+      c > 0 &&
+      c < currRow.length &&
       (currRow[c - 1].dataset.type == "wall" ||
         currRow[c - 1].dataset.waterstate == "10") &&
       (r + 1 == grid.length ||
@@ -273,6 +280,8 @@ function rain() {
       tile.dataset.waterstate = "10";
     }
     if (
+      c < currRow.length - 1 &&
+      c > 0 &&
       (currRow[c + 1].dataset.type == "wall" ||
         currRow[c - 1].dataset.waterstate == "01") &&
       (r + 1 == grid.length ||
@@ -281,6 +290,7 @@ function rain() {
     ) {
       tile.dataset.waterstate = "01";
     }
+    queue.push([r, c]);
   }
   if (queue.length > 0) {
     setTimeout(rain, 1000 / speed);
