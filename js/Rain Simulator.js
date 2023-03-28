@@ -231,7 +231,7 @@ function rain() {
     }
     if (
       c != 0 &&
-      c != currRow.length &&
+      c != currRow.length - 1 &&
       (currRow[c - 1].dataset.type == "wall" ||
         currRow[c - 1].dataset.waterstate == "10" ||
         currRow[c - 1].dataset.waterstate == "full") &&
